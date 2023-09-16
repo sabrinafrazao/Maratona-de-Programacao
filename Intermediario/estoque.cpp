@@ -8,9 +8,10 @@ int M[510][510];
 int main(){
 	cin >> n >> m;
 	
-	for(int i=1; i<n; i++)
-		for(int j=1; j<m; j++)
-			cin >> M[i][j];
+	for(int i=1; i<=n; i++)
+    for(int j=1; j<=m; j++)
+        cin >> M[i][j];
+
 			
 			
 	int x, p, y;
