@@ -1,50 +1,41 @@
-#include <iostream>
-#include <cmath>
+#include<bits/stdc++.h>
+#define _ ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define endl "\n"
+#define ll long long
 
 using namespace std;
 
-long long findNumberInSpiral(long long e, long long x) {
-    if (e == 1) return 1;
-    
-    long long layer = ceil(sqrt(e));
-    long long base = (layer - 1) * (layer - 1) + 1;
-    long long sideLength = layer * 2 - 1;
-    long long positionInLayer = e - base;
-    long long side = positionInLayer / (layer - 1);
-    long long remainder = positionInLayer % (layer - 1);
-    long long row, col;
+int main(){ _
 
-    switch(side) {
-        case 0:
-            row = layer - 1;
-            col = remainder;
-            break;
-        case 1:
-            row = sideLength - remainder - 1;
-            col = layer - 1;
-            break;
-        case 2:
-            row = sideLength - layer + 1;
-            col = sideLength - remainder - 1;
-            break;
-        case 3:
-            row = remainder;
-            col = layer - 1;
-            break;
-    }
-
-    return base + abs(row - (layer - 1)) + abs(col - (layer - 1));
-}
-
-int main() {
     int t;
-    cin >> t;
+    ll e, x;
 
-    for (int i = 0; i < t; ++i) {
-        long long e, x;
-        cin >> e >> x;
-        cout << findNumberInSpiral(e, x) << endl;
+    cin>>t;
+
+    while (t--)
+    {
+       cin>>e>>x;
+
+
+       ll res;
+
+       if(e>=x){
+        if(e%2==0){
+            res = e*e - x+1;
+        }else{
+            res = (e-1)*(e-1) + x;
+        }
+       }else{
+            if(x%2!=0){
+                res = x*x - e+1;
+            }else{
+                res = (x-1) * (x-1) +e;
+            }
+       }
+
+       cout<<res<<endl;
     }
 
     return 0;
+    
 }

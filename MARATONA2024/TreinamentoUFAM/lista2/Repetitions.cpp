@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main(){
+int main(){ _
     string n;
     int maxR = 1; 
     int cont = 1; 
